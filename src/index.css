@@ -31,3 +31,7 @@ body {
 .font-monoton {
   font-family: "Monoton", cursive;
 }
+
+.categoryContainer:hover img {
+  scale: 1.1;
+}
