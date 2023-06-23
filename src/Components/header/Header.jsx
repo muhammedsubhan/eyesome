@@ -1,6 +1,7 @@
 import React from "react";
 import { BsArrowDownRightCircle } from "react-icons/bs";
 import bannerImg from "../../assets/bannerImg.png";
+import TrendingProducts from "../TrendingProducts/TrendingProducts";
 const Header = () => {
   return (
     <>
@@ -28,6 +29,7 @@ const Header = () => {
           <img src={bannerImg} alt="bannerImg" className="w-2/3	 h-full" />
         </div>
       </div>
+      <TrendingProducts/>
     </>
   );
 };
