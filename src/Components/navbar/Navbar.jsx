@@ -6,7 +6,7 @@ import Search from "../search/Search";
 const Navbar = () => {
   return (
     <>
-      <nav className="flex items-center justify-around py-4">
+      <nav className="flex items-center justify-around py-4 sticky top-0 bg-white">
         <div className="flex">
           <img
             src={defaultUser}
