@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useRef } from "react";
 import { BsArrowDownRightCircle } from "react-icons/bs";
 import bannerImg from "../../assets/bannerImg.png";
 import TrendingProducts from "../TrendingProducts/TrendingProducts";
 import Category from "../Category/Category";
-
+import Footer from "../../Components/footer/Footer";
+import { Link } from "react-router-dom";
 const Header = () => {
+  const catRef = useRef(null);
+
   return (
     <>
       <div className="flex justify-between items-center py-3 mb-5 px-32 ">
@@ -18,10 +21,19 @@ const Header = () => {
             More than 100 types of assortment.
           </p>
           <div className="flex gap-5">
-            <button className=" py-2 px-4 bg-gray-900  text-gray-100 rounded-lg hover:bg-gray-800 disabled:bg-opacity-50 disabled:hover:bg-opacity-50">
-              Start Shopping
-            </button>
-            <button className="flex items-center">
+            <Link to="/start-shopping">
+              <button className=" py-2 px-4 bg-gray-900  text-gray-100 rounded-lg hover:bg-gray-800 disabled:bg-opacity-50 disabled:hover:bg-opacity-50">
+                Start Shopping
+              </button>
+            </Link>
+            <button
+              className="flex items-center gap-1"
+              onClick={() =>
+                catRef.current.scrollIntoView({
+                  behavior: "smooth",
+                })
+              }
+            >
               Explore More
               <BsArrowDownRightCircle className="text-lg" />
             </button>
@@ -32,7 +44,8 @@ const Header = () => {
         </div>
       </div>
       <TrendingProducts />
-      <Category />
+      <Category catRef={catRef} />
+      <Footer />
     </>
   );
 };

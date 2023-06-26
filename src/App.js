@@ -1,14 +1,17 @@
 import React from "react";
 import Navbar from "./Components/navbar/Navbar";
 import Header from "./Components/header/Header";
-import Footer from "./Components/footer/Footer";
+import StartShopping from "./Pages/StartShopping/StartShopping";
+import { Routes, Route } from "react-router-dom";
 const App = () => {
   return (
     <>
-      <div>
+      <div className="min-h-screen">
         <Navbar />
-        <Header />
-        <Footer />
+        <Routes>
+          <Route path="/" element={<Header />} />
+          <Route path="/start-shopping" element={<StartShopping />} />
+        </Routes>
       </div>
     </>
   );
