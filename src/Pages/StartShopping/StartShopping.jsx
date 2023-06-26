@@ -1,7 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import bannerHero from "../../assets/bannerHero.jpg";
 import ShoppingProducts from "../ShoppingProducts/ShoppingProducts";
+import { BiFilter } from "react-icons/bi";
+import Filters from "../../Components/Filters/Filters";
+
 const StartShopping = () => {
+  const [filterToggle, setFilterToggle] = useState(false);
+
   return (
     <>
       <div className="mt-6 mb-4 px-32 min-h-screen">
@@ -14,8 +19,11 @@ const StartShopping = () => {
         </div>
         <div className="py-5 flex flex-col md:flex-row gap-2 justify-between ">
           <p className="text-2xl font-bold">Glasses For You!</p>
-
-          <div className="flex gap-16">
+          <Filters
+            filterToggle={filterToggle}
+            setFilterToggle={setFilterToggle}
+          />
+          <div className="flex gap-8 items-center">
             <label>
               <select
                 name="sortBy"
@@ -28,7 +36,13 @@ const StartShopping = () => {
                 <option value="high_to_low">High to Low</option>
               </select>
             </label>
-            <div>filters</div>
+            <button
+              className="flex py-1 px-2 rounded-md shadow-md items-center  gap-1 hover:bg-[--primary-text-color] hover:text-white hover:shadow-lg"
+              onClick={() => setFilterToggle(true)}
+            >
+              <BiFilter className="text-lg" />
+              <p className="text-sm">Filters</p>
+            </button>
           </div>
         </div>
         <ShoppingProducts />
