@@ -9,12 +9,14 @@ const Navbar = () => {
     <>
       <nav className="flex items-center justify-around py-4  top-0 bg-white ">
         <div className="flex">
-          <img
-            src={defaultUser}
-            alt="user"
-            width={40}
-            className="rounded-full border-2  bg-yellow-300 me-3 hover:bg-yellow-500 cursor-pointer"
-          />
+          <Link to="/login">
+            <img
+              src={defaultUser}
+              alt="user"
+              width={40}
+              className="rounded-full border-2  bg-yellow-300 me-3 hover:bg-yellow-500 cursor-pointer"
+            />
+          </Link>
           <Link to="/">
             <h1 className="font-monoton text-3xl hover:text-red-800 cursor-pointer  transition">
               eyesome
@@ -30,12 +32,16 @@ const Navbar = () => {
           </Link>
 
           <ul className="text-2xl ps-1 flex">
-            <li className="bg-gray-200  p-2 rounded-full hover:bg-yellow-800 hover:text-white cursor-pointer mx-2 transition shadow-sm">
-              <BsBookmarkHeart />
-            </li>
-            <li className="bg-yellow-500 text-white p-2 rounded-full hover:bg-yellow-800 cursor-pointer mx-2 transition shadow-sm">
-              <HiOutlineShoppingBag />
-            </li>
+            <Link to="/login">
+              <li className="bg-gray-200  p-2 rounded-full hover:bg-yellow-800 hover:text-white cursor-pointer mx-2 transition shadow-sm">
+                <BsBookmarkHeart />
+              </li>
+            </Link>
+            <Link to="/login">
+              <li className="bg-yellow-500 text-white p-2 rounded-full hover:bg-yellow-800 cursor-pointer mx-2 transition shadow-sm">
+                <HiOutlineShoppingBag />
+              </li>
+            </Link>
           </ul>
         </div>
       </nav>

@@ -3,12 +3,14 @@ import bannerHero from "../../assets/bannerHero.jpg";
 import ShoppingProducts from "../ShoppingProducts/ShoppingProducts";
 import { BiFilter } from "react-icons/bi";
 import Filters from "../../Components/Filters/Filters";
+import Navbar from "../../Components/navbar/Navbar";
 
 const StartShopping = () => {
   const [filterToggle, setFilterToggle] = useState(false);
 
   return (
     <>
+      <Navbar />
       <div className="mt-6 mb-4 px-32 min-h-screen">
         <div>
           <img
