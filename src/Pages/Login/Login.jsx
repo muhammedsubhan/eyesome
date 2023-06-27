@@ -1,7 +1,44 @@
-import React from "react";
+import React, { useState } from "react";
 import bannerHero from "../../assets/bannerHero.jpg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useUserAuth } from "../UserAuthContext/UserAuthContext";
+
 const Login = () => {
+  const [data, setData] = useState({
+    email: "",
+    password: "",
+  });
+
+  const [error, setError] = useState("");
+  const { logIn } = useUserAuth();
+
+  const navigate = useNavigate();
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+
+    setData((prev) => {
+      return { ...prev, [name]: value };
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError(" ");
+
+    try {
+      await logIn(data.email, data.password);
+      navigate("/profile");
+    } catch (error) {
+      setError(error.message);
+    }
+
+    setData({
+      email: "",
+      password: "",
+    });
+  };
+
   return (
     <>
       <div className="grid  grid-rows-1 lg:grid-cols-2 w-full  h-screen m-auto">
@@ -23,11 +60,14 @@ const Login = () => {
               <h1 className="text-3xl font-bold mb-3 ">
                 Login To Your Account
               </h1>
-              <form className="flex flex-col gap-3">
+              <form className="flex flex-col gap-3" onSubmit={handleSubmit}>
                 <label className="flex flex-col">
                   Email
                   <input
                     type="email"
+                    name="email"
+                    value={data.email}
+                    onChange={handleChange}
                     className="border rounded-md p-1.5 shadow-sm"
                   />
                 </label>
@@ -35,12 +75,18 @@ const Login = () => {
                   Password
                   <input
                     type="password"
+                    name="password"
+                    value={data.password}
+                    onChange={handleChange}
                     className="border rounded-md p-1.5 shadow-sm"
                   />
                 </label>
-
+                {error && <p className="text-center text-red-800">{error}</p>}
                 <div className="w-full py-2 flex flex-col gap-4 items-center">
-                  <button className=" w-2/3 text-lg text-center py-2 px-4 border border-[--primary-text-color] rounded-lg hover:bg-[--primary-text-color] hover:text-white transition">
+                  <button
+                    type="submit"
+                    className=" w-2/3 text-lg text-center py-2 px-4 border border-[--primary-text-color] rounded-lg hover:bg-[--primary-text-color] hover:text-white transition"
+                  >
                     Login
                   </button>
 
