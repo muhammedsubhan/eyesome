@@ -10,7 +10,7 @@ const Login = () => {
   });
 
   const [error, setError] = useState("");
-  const { logIn } = useUserAuth();
+  const { logIn, user } = useUserAuth();
 
   const navigate = useNavigate();
 
@@ -32,6 +32,8 @@ const Login = () => {
     } catch (error) {
       setError(error.message);
     }
+
+    localStorage.setItem("auth", JSON.stringify(user.accessToken));
 
     setData({
       email: "",

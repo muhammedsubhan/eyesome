@@ -4,9 +4,13 @@ import { useUserAuth } from "../UserAuthContext/UserAuthContext";
 
 const ProtectedRoutes = ({ children }) => {
   const { user } = useUserAuth();
-  if (!user) {
+
+  const auth = JSON.parse(localStorage.getItem("auth"));
+
+  if (!auth) {
     return <Navigate to="/login" />;
   }
+
   return children;
 };
 

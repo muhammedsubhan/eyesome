@@ -31,9 +31,8 @@ const SignUp = () => {
 
     try {
       await signUp(userData.email, userData.password);
-      localStorage.setItem("username", userData.username);
-      localStorage.setItem("email", userData.email);
-
+      localStorage.setItem("username", JSON.stringify(userData.username));
+      localStorage.setItem("email", JSON.stringify(userData.email));
       navigate("/login");
     } catch (error) {
       setError(error.message);

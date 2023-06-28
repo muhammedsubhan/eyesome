@@ -1,23 +1,35 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useUserAuth } from "../UserAuthContext/UserAuthContext";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../../Components/navbar/Navbar";
 
 const Profile = () => {
   const [loggingOut, setLoggingOut] = useState(false);
-  const { user, logOut } = useUserAuth();
+  const { logOut } = useUserAuth();
+  const [userName, setUserName] = useState("");
+  const [email, setEmail] = useState("");
 
   const navigate = useNavigate();
 
   const handleLogOut = async () => {
     try {
       await logOut();
+      localStorage.removeItem("auth");
       setLoggingOut(true);
       navigate("/");
     } catch (error) {
       console.log(error);
     }
   };
+
+  useEffect(() => {
+    const localUserName = JSON.parse(localStorage.getItem("username"));
+    const localEmail = JSON.parse(localStorage.getItem("email"));
+    if (localUserName && localEmail) {
+      setUserName(localUserName);
+      setEmail(localEmail);
+    }
+  }, []);
 
   return (
     <>
@@ -30,11 +42,11 @@ const Profile = () => {
           <div className="flex flex-col gap-4 w-full p-5">
             <p>
               <span className="text-gray-600 me-1">Username:</span>
-              <span className="break-all">Subhan</span>
+              <span className="break-all">{userName}</span>
             </p>
             <p>
               <span className="text-gray-600 me-1">Email:</span>
-              <span className="break-all">{user.email}</span>
+              <span className="break-all">{email}</span>
             </p>
             <hr />
             <button

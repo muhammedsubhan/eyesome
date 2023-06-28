@@ -4,12 +4,15 @@ import { BsBookmarkHeart } from "react-icons/bs";
 import { HiOutlineShoppingBag } from "react-icons/hi";
 import { Link } from "react-router-dom";
 import Search from "../search/Search";
+import { useUserAuth } from "../../Pages/UserAuthContext/UserAuthContext";
 const Navbar = () => {
+  const { user } = useUserAuth();
+
   return (
     <>
       <nav className="flex items-center justify-around py-4  top-0 bg-white ">
         <div className="flex">
-          <Link to="/login">
+          <Link to={user ? "/profile" : "/login"}>
             <img
               src={defaultUser}
               alt="user"
