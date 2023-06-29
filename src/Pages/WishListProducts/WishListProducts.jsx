@@ -1,7 +1,17 @@
 import React from "react";
-import { BsBookmarkHeart } from "react-icons/bs";
+import { BsBookmarkHeart, BsFillBookmarkHeartFill } from "react-icons/bs";
 import { GiRoundStar } from "react-icons/gi";
+import { useAddToWishList } from "../WishListContext/WishListContext";
 const WishListProducts = ({ data }) => {
+  const { addToWishList, removeWishList } = useAddToWishList();
+
+  const isInWishList = addToWishList.some((item) => item.id === data.id);
+
+  const handleRemoveFromWishList = (id) => {
+    removeWishList(id, addToWishList);
+    console.log(id);
+  };
+
   return (
     <>
       <div
@@ -38,8 +48,12 @@ const WishListProducts = ({ data }) => {
           <button className="border border-[--primary-text-color]  py-1.5 text-sm  rounded-full px-6 hover:bg-[--primary-text-color] hover:text-white transition hover:shadow-md">
             Add To Bag
           </button>
-          <button>
-            <BsBookmarkHeart className="text-xl hover:text-rose-600 hover:shadow-md transition" />
+          <button onClick={() => handleRemoveFromWishList(data.id)}>
+            {isInWishList ? (
+              <BsFillBookmarkHeartFill className="text-xl text-rose-600 hover:shadow-md transition" />
+            ) : (
+              <BsBookmarkHeart className="text-xl hover:text-rose-600 hover:shadow-md transition" />
+            )}
           </button>
         </div>
       </div>

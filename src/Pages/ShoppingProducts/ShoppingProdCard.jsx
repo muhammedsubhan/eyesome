@@ -5,11 +5,13 @@ import { GiRoundStar } from "react-icons/gi";
 import { useAddToWishList } from "../WishListContext/WishListContext";
 
 const ShoppingProdCard = ({ data }) => {
-  const { addWishList } = useAddToWishList();
+  const { addWishList, addToWishList } = useAddToWishList();
 
   const handleWishList = () => {
     addWishList(data);
   };
+
+  const isInWishList = addToWishList.some((item) => item.id === data.id);
 
   return (
     <>
@@ -48,7 +50,7 @@ const ShoppingProdCard = ({ data }) => {
             Add To Bag
           </button>
           <button onClick={() => handleWishList(data.id)}>
-            {addWishList > 0 ? (
+            {isInWishList ? (
               <BsFillBookmarkHeartFill className="text-xl text-rose-600 hover:shadow-md transition" />
             ) : (
               <BsBookmarkHeart className="text-xl hover:text-rose-600 hover:shadow-md transition" />

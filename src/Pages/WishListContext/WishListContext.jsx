@@ -8,12 +8,23 @@ export function WishListContextProvider({ children }) {
   function addWishList(data) {
     setAddToWishList((prev) => [...prev, data]);
   }
+
+  function removeWishList(id, data) {
+    const filterWishList = data.filter((item) => {
+      return item.id !== id;
+    });
+
+    return setAddToWishList(filterWishList);
+  }
+
   useEffect(() => {
     console.log(addToWishList);
   }, [addToWishList]);
 
   return (
-    <WishListContext.Provider value={{ addWishList, addToWishList }}>
+    <WishListContext.Provider
+      value={{ addWishList, addToWishList, removeWishList }}
+    >
       {children}
     </WishListContext.Provider>
   );
