@@ -4,15 +4,14 @@ import { BsBookmarkHeart } from "react-icons/bs";
 import { HiOutlineShoppingBag } from "react-icons/hi";
 import { Link } from "react-router-dom";
 import Search from "../search/Search";
-import { useUserAuth } from "../../Pages/UserAuthContext/UserAuthContext";
 const Navbar = () => {
-  const { user } = useUserAuth();
+  const auth = JSON.parse(localStorage.getItem("auth"));
 
   return (
     <>
       <nav className="flex items-center justify-around py-4  top-0 bg-white ">
         <div className="flex">
-          <Link to={user ? "/profile" : "/login"}>
+          <Link to={auth ? "/profile" : "/login"}>
             <img
               src={defaultUser}
               alt="user"
@@ -35,7 +34,7 @@ const Navbar = () => {
           </Link>
 
           <ul className="text-2xl ps-1 flex">
-            <Link to="/login">
+            <Link to={auth ? "/wishlist" : "/login"}>
               <li className="bg-gray-200  p-2 rounded-full hover:bg-yellow-800 hover:text-white cursor-pointer mx-2 transition shadow-sm">
                 <BsBookmarkHeart />
               </li>

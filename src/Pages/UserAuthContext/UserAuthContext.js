@@ -22,7 +22,7 @@ export function UserAuthContextProvider({ children }) {
   }
 
   function logOut() {
-    return signOut(auth)
+    return signOut(auth);
   }
 
   useEffect(() => {
@@ -36,7 +36,7 @@ export function UserAuthContextProvider({ children }) {
   }, []);
 
   return (
-    <UserAuthContext.Provider value={{ user, signUp, logIn,logOut }}>
+    <UserAuthContext.Provider value={{ user, signUp, logIn, logOut }}>
       {children}
     </UserAuthContext.Provider>
   );

@@ -6,6 +6,7 @@ import Login from "./Pages/Login/Login";
 import SignUp from "./Pages/SignUp/SignUp";
 import Profile from "./Pages/Profile/Profile";
 import ProtectedRoutes from "./Pages/ProtectedRoutes/ProtectedRoutes";
+import WishList from "./Pages/WishList/WishList";
 const App = () => {
   return (
     <>
@@ -23,6 +24,7 @@ const App = () => {
               </ProtectedRoutes>
             }
           />
+          <Route path="/wishlist" element={<WishList />} />
         </Routes>
       </div>
     </>

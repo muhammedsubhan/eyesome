@@ -28,12 +28,11 @@ const Login = () => {
 
     try {
       await logIn(data.email, data.password);
+      localStorage.setItem("auth", JSON.stringify(user));
       navigate("/profile");
     } catch (error) {
       setError(error.message);
     }
-
-    localStorage.setItem("auth", JSON.stringify(user.accessToken));
 
     setData({
       email: "",
