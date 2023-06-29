@@ -1,16 +1,7 @@
 import React from "react";
-import { BsBookmarkHeart, BsFillBookmarkHeartFill } from "react-icons/bs";
-
+import { BsBookmarkHeart } from "react-icons/bs";
 import { GiRoundStar } from "react-icons/gi";
-import { useAddToWishList } from "../WishListContext/WishListContext";
-
-const ShoppingProdCard = ({ data }) => {
-  const { addWishList } = useAddToWishList();
-
-  const handleWishList = () => {
-    addWishList(data);
-  };
-
+const WishListProducts = ({ data }) => {
   return (
     <>
       <div
@@ -47,12 +38,8 @@ const ShoppingProdCard = ({ data }) => {
           <button className="border border-[--primary-text-color]  py-1.5 text-sm  rounded-full px-6 hover:bg-[--primary-text-color] hover:text-white transition hover:shadow-md">
             Add To Bag
           </button>
-          <button onClick={() => handleWishList(data.id)}>
-            {addWishList > 0 ? (
-              <BsFillBookmarkHeartFill className="text-xl text-rose-600 hover:shadow-md transition" />
-            ) : (
-              <BsBookmarkHeart className="text-xl hover:text-rose-600 hover:shadow-md transition" />
-            )}
+          <button>
+            <BsBookmarkHeart className="text-xl hover:text-rose-600 hover:shadow-md transition" />
           </button>
         </div>
       </div>
@@ -60,4 +47,4 @@ const ShoppingProdCard = ({ data }) => {
   );
 };
 
-export default ShoppingProdCard;
+export default WishListProducts;

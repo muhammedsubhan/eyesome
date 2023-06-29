@@ -4,8 +4,11 @@ import { BsBookmarkHeart } from "react-icons/bs";
 import { HiOutlineShoppingBag } from "react-icons/hi";
 import { Link } from "react-router-dom";
 import Search from "../search/Search";
+import { useAddToWishList } from "../../Pages/WishListContext/WishListContext";
 const Navbar = () => {
   const auth = JSON.parse(localStorage.getItem("auth"));
+
+  const { addToWishList } = useAddToWishList();
 
   return (
     <>
@@ -35,8 +38,13 @@ const Navbar = () => {
 
           <ul className="text-2xl ps-1 flex">
             <Link to={auth ? "/wishlist" : "/login"}>
-              <li className="bg-gray-200  p-2 rounded-full hover:bg-yellow-800 hover:text-white cursor-pointer mx-2 transition shadow-sm">
+              <li className="bg-gray-200 relative p-2 rounded-full hover:bg-yellow-800 hover:text-white cursor-pointer mx-2 transition shadow-sm">
                 <BsBookmarkHeart />
+                {auth && addToWishList.length > 0 && (
+                  <div className="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-rose-600 border-2 border-[--theme-color] rounded-full -top-2 -right-2 ">
+                    {addToWishList.length}
+                  </div>
+                )}
               </li>
             </Link>
             <Link to="/login">
