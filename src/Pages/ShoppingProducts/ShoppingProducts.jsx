@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { MdKeyboardArrowUp } from "react-icons/md";
 import ShoppingProdCard from "./ShoppingProdCard";
 import { Glasses } from "./products";
+import { ToastContainer } from "react-toastify";
 
 const ShoppingProducts = () => {
   const [showScrollArrow, setShowScrollArrow] = useState(false);
@@ -29,9 +30,10 @@ const ShoppingProducts = () => {
   return (
     <>
       <div>
+        <ToastContainer />
         <div className="relative grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4">
           {Glasses.map((glasses) => {
-            return <ShoppingProdCard key={glasses.id} data={glasses}/>;
+            return <ShoppingProdCard key={glasses.id} data={glasses} />;
           })}
         </div>
 

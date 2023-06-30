@@ -3,13 +3,15 @@ import emptyWish from "../../assets/empty-wish.gif";
 import Navbar from "../../Components/navbar/Navbar";
 import WishListProducts from "../WishListProducts/WishListProducts";
 import { useAddToWishList } from "../WishListContext/WishListContext";
-
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const WishList = () => {
   const { addToWishList } = useAddToWishList();
 
   return (
     <>
       <Navbar />
+      <ToastContainer />
       <div className="px-32">
         {addToWishList.length > 0 ? (
           <div>

@@ -1,6 +1,7 @@
 import React from "react";
 import { BsBookmarkHeart, BsFillBookmarkHeartFill } from "react-icons/bs";
-
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { GiRoundStar } from "react-icons/gi";
 import { useAddToWishList } from "../WishListContext/WishListContext";
 import { Link } from "react-router-dom";
@@ -12,6 +13,7 @@ const ShoppingProdCard = ({ data }) => {
 
   const handleWishList = () => {
     addWishList(data);
+    toast.success("Product Added To WishList");
   };
 
   const handleProductDetails = (data) => {
@@ -29,17 +31,16 @@ const ShoppingProdCard = ({ data }) => {
       transition-transform
       hover:scale-[1.02] hover:shadow-lg"
       >
-     
-          <div className="flex items-center justify-center p-10 xs:p-5 sm:p-10 bg-black/[0.075]  xs:w-1/2 w-full sm:w-full">
+        <div className="flex items-center justify-center p-10 xs:p-5 sm:p-10 bg-black/[0.075]  xs:w-1/2 w-full sm:w-full">
           <Link to="/product-details">
             <img
               src={data.img}
               alt="sport"
               className="w-full object-cover xs:object-contain sm:object-cover h-28"
             />
-             </Link>
-          </div>
-       
+          </Link>
+        </div>
+
         <div className="flex justify-between py-4 px-4 leading-relaxed">
           <div>
             <h1 className="text-xl font-medium">{data.name}</h1>

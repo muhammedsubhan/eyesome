@@ -4,6 +4,9 @@ import { GiRoundStar } from "react-icons/gi";
 import { useAddToWishList } from "../WishListContext/WishListContext";
 import { useProductById } from "../ProductsContext/ProductsContext";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 const WishListProducts = ({ data }) => {
   const { addToWishList, removeWishList } = useAddToWishList();
   const { setProductById } = useProductById();
@@ -11,6 +14,7 @@ const WishListProducts = ({ data }) => {
 
   const handleRemoveFromWishList = (id) => {
     removeWishList(id, addToWishList);
+    toast.error("Remove From WishList");
   };
 
   const handleWishListDetails = (data) => {
