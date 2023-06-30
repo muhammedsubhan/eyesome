@@ -25,6 +25,10 @@ export const Glasses = [
     oldPrice: "1999",
     rating: "4.5",
     category: "sports",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    gender: "Men",
+    weight: "200g",
   },
   {
     id: "2",
@@ -35,6 +39,10 @@ export const Glasses = [
     oldPrice: "1299",
     rating: "4.8",
     category: "sports",
+    description:
+      "Pellentesque ac tortor sed ipsum feugiat condimentum.Pellentesque ac tortor sed ipsum feugiat condimentum.",
+    gender: "Men",
+    weight: "100g",
   },
   {
     id: "3",
@@ -45,6 +53,10 @@ export const Glasses = [
     oldPrice: "2999",
     rating: "4.7",
     category: "sports",
+    description:
+      "Integer et nunc in turpis maximus facilisis ac ac elit.Integer et nunc in turpis maximus facilisis ac ac elit.",
+    gender: "Unisex",
+    weight: "750g",
   },
   {
     id: "4",
@@ -55,6 +67,10 @@ export const Glasses = [
     oldPrice: "2499",
     rating: "3.8",
     category: "sports",
+    description:
+      "Vestibulum eu tellus sed lorem tristique lacinia ut vel urna. Vestibulum eu tellus sed lorem tristique lacinia ut vel urna.",
+    gender: "Unisex",
+    weight: "300g",
   },
   {
     id: "5",
@@ -65,6 +81,10 @@ export const Glasses = [
     oldPrice: "3999",
     rating: "3.5",
     category: "sports",
+    description:
+      "Aenean at velit consequat, faucibus mi id, tempor velit. Aenean at velit consequat, faucibus mi id, tempor velit.",
+    gender: "Women",
+    weight: "900g",
   },
   //   sunGlasses
 
@@ -77,6 +97,10 @@ export const Glasses = [
     oldPrice: "1999",
     rating: "4.5",
     category: "sunglasses",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    gender: "Men",
+    weight: "200g",
   },
   {
     id: "7",
@@ -87,6 +111,10 @@ export const Glasses = [
     oldPrice: "1299",
     rating: "2.8",
     category: "sunglasses",
+    description:
+      "Pellentesque ac tortor sed ipsum feugiat condimentum. Pellentesque ac tortor sed ipsum feugiat condimentum.",
+    gender: "Unisex",
+    weight: "100g",
   },
   {
     id: "8",
@@ -97,6 +125,10 @@ export const Glasses = [
     oldPrice: "2999",
     rating: "4.7",
     category: "sunglasses",
+    description:
+      "Integer et nunc in turpis maximus facilisis ac ac elit. Integer et nunc in turpis maximus facilisis ac ac elit.",
+    gender: "Unisex",
+    weight: "750g",
   },
   {
     id: "9",
@@ -107,6 +139,10 @@ export const Glasses = [
     oldPrice: "2499",
     rating: "3.8",
     category: "sunglasses",
+    description:
+      "Vestibulum eu tellus sed lorem tristique lacinia ut vel urna. Vestibulum eu tellus sed lorem tristique lacinia ut vel urna.",
+    gender: "Unisex",
+    weight: "300g",
   },
   {
     id: "10",
@@ -117,6 +153,10 @@ export const Glasses = [
     oldPrice: "3999",
     rating: "3.5",
     category: "sunglasses",
+    description:
+      "Aenean at velit consequat, faucibus mi id, tempor velit. Aenean at velit consequat, faucibus mi id, tempor velit.",
+    gender: "Women",
+    weight: "900g",
   },
   //   vision
 
@@ -129,6 +169,10 @@ export const Glasses = [
     oldPrice: "2999",
     rating: "4.3",
     category: "vision",
+    description:
+      "Vivamus mattis quam sed libero pretium ullamcorper. Vivamus mattis quam sed libero pretium ullamcorper.",
+    gender: "Women",
+    weight: "120g",
   },
   {
     id: "12",
@@ -139,6 +183,10 @@ export const Glasses = [
     oldPrice: "4999",
     rating: "4.8",
     category: "vision",
+    description:
+      "Donec interdum felis non justo sollicitudin lobortis. Donec interdum felis non justo sollicitudin lobortis.",
+    gender: "Unisex",
+    weight: "550g",
   },
   {
     id: "13",
@@ -149,6 +197,10 @@ export const Glasses = [
     oldPrice: "4999",
     rating: "4.8",
     category: "vision",
+    description:
+      "Donec interdum felis non justo sollicitudin lobortis. Donec interdum felis non justo sollicitudin lobortis.",
+    gender: "Unisex",
+    weight: "550g",
   },
   {
     id: "14",
@@ -159,6 +211,10 @@ export const Glasses = [
     oldPrice: "1999",
     rating: "4.5",
     category: "vision",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    gender: "Men",
+    weight: "200g",
   },
   {
     id: "15",
@@ -169,5 +225,9 @@ export const Glasses = [
     oldPrice: "1299",
     rating: "2.8",
     category: "vision",
+    description:
+      "Pellentesque ac tortor sed ipsum feugiat condimentum. Pellentesque ac tortor sed ipsum feugiat condimentum.",
+    gender: "Men",
+    weight: "190g",
   },
 ];

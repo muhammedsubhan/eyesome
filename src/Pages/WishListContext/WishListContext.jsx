@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useState } from "react";
 
 const WishListContext = createContext();
 
@@ -16,10 +16,6 @@ export function WishListContextProvider({ children }) {
 
     return setAddToWishList(filterWishList);
   }
-
-  useEffect(() => {
-    console.log(addToWishList);
-  }, [addToWishList]);
 
   return (
     <WishListContext.Provider

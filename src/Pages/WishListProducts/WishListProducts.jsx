@@ -2,30 +2,38 @@ import React from "react";
 import { BsBookmarkHeart, BsFillBookmarkHeartFill } from "react-icons/bs";
 import { GiRoundStar } from "react-icons/gi";
 import { useAddToWishList } from "../WishListContext/WishListContext";
+import { useProductById } from "../ProductsContext/ProductsContext";
+import { Link } from "react-router-dom";
 const WishListProducts = ({ data }) => {
   const { addToWishList, removeWishList } = useAddToWishList();
-
+  const { setProductById } = useProductById();
   const isInWishList = addToWishList.some((item) => item.id === data.id);
 
   const handleRemoveFromWishList = (id) => {
     removeWishList(id, addToWishList);
-    console.log(id);
+  };
+
+  const handleWishListDetails = (data) => {
+    setProductById(data);
   };
 
   return (
     <>
       <div
+        onClick={() => handleWishListDetails(data)}
         className="flex flex-col xs:flex-row sm:flex-col  bg-white/[0.5] rounded-lg shadow-md border-2 border-black/[0.05] overflow-hidden
       cursor-pointer
       transition-transform
       hover:scale-[1.02] hover:shadow-lg"
       >
         <div className="flex items-center justify-center p-10 xs:p-5 sm:p-10 bg-black/[0.075]  xs:w-1/2 w-full sm:w-full">
-          <img
-            src={data.img}
-            alt="sport"
-            className="w-full object-cover xs:object-contain sm:object-cover h-28"
-          />
+          <Link to="/product-details">
+            <img
+              src={data.img}
+              alt="sport"
+              className="w-full object-cover xs:object-contain sm:object-cover h-28"
+            />
+          </Link>
         </div>
         <div className="flex justify-between py-4 px-4 leading-relaxed">
           <div>

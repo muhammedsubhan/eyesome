@@ -11,10 +11,10 @@ const TrendingProductsCard = ({ data }) => {
             </h2>
             <div>
               <p className="text-lg xs:text-base sm:text-lg font-bold">
-                ₹{data.price}
+                ₹{data.newPrice}
               </p>
               <small className="text-gray-600 text-sm text-end">
-                {data.catergories}
+                {data.category}
               </small>
             </div>
           </div>

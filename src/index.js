@@ -5,14 +5,16 @@ import "./index.css";
 import { BrowserRouter } from "react-router-dom";
 import { UserAuthContextProvider } from "./Pages/UserAuthContext/UserAuthContext";
 import { WishListContextProvider } from "./Pages/WishListContext/WishListContext";
-
+import { ProductsContextProvider } from "./Pages/ProductsContext/ProductsContext";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
       <UserAuthContextProvider>
         <WishListContextProvider>
-          <App />
+          <ProductsContextProvider>
+            <App />
+          </ProductsContextProvider>
         </WishListContextProvider>
       </UserAuthContextProvider>
     </BrowserRouter>
