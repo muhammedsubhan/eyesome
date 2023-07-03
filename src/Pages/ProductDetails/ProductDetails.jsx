@@ -22,6 +22,7 @@ const ProductDetails = () => {
     <>
       <Navbar />
       <ToastContainer />
+
       <div className="md:min-h-[80vh] flex justify-center items-center pt-5 sm:pt-3 pb-2 relative px-24">
         <main className="grid grid-rows-1 sm:grid-cols-2 gap-2 sm:gap-10 ">
           <section className="relative p-7 bg-black/[0.075]  flex items-center justify-center rounded-lg">

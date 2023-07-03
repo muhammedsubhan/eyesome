@@ -11,11 +11,14 @@ const Search = () => {
 
   useEffect(() => {
     setSearching(true);
-    const filteredGlasses = Glasses.filter((glass) =>
-      glass.name.toLowerCase().includes(search.toLowerCase())
-    );
-    setFilteredData(filteredGlasses);
-    setSearching(false);
+    setTimeout(() => {
+      const filteredGlasses = Glasses.filter((glass) =>
+        glass.name.toLowerCase().includes(search.toLowerCase())
+      );
+      setFilteredData(filteredGlasses);
+      setSearching(false);
+
+    }, 2000);
   }, [search]);
 
   const changeHandler = (e) => {
