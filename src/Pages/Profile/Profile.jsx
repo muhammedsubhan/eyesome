@@ -5,7 +5,7 @@ import Navbar from "../../Components/navbar/Navbar";
 
 const Profile = () => {
   const [loggingOut, setLoggingOut] = useState(false);
-  const { logOut } = useUserAuth();
+  const { logOut, user } = useUserAuth();
   const [userName, setUserName] = useState("");
   const [email, setEmail] = useState("");
 
@@ -25,11 +25,11 @@ const Profile = () => {
   useEffect(() => {
     const localUserName = JSON.parse(localStorage.getItem("username"));
     const localEmail = JSON.parse(localStorage.getItem("email"));
-    if (localUserName && localEmail) {
+    if (user && localUserName && localEmail) {
       setUserName(localUserName);
       setEmail(localEmail);
     }
-  }, []);
+  }, [user]);
 
   return (
     <>

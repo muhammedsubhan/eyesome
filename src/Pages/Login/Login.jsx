@@ -39,7 +39,6 @@ const Login = () => {
       password: "",
     });
   };
-
   return (
     <>
       <div className="grid  grid-rows-1 lg:grid-cols-2 w-full  h-screen m-auto">
