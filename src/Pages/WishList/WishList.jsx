@@ -12,7 +12,7 @@ const WishList = () => {
     <>
       <Navbar />
       <ToastContainer />
-      <div className="px-32">
+      <div className="pt-24">
         {addToWishList.length > 0 ? (
           <div>
             <h1 className="text-2xl py-6 font-semibold text-gray-800">

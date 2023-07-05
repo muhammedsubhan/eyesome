@@ -33,7 +33,7 @@ const ShoppingProducts = () => {
     <>
       <div>
         <ToastContainer />
-        <div className="relative grid items-center justify-center grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4">
+        <div className=" relative grid items-center justify-center grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 ">
           {sortByPrice.map((glasses) => {
             return <ShoppingProdCard key={glasses.id} data={glasses} />;
           })}

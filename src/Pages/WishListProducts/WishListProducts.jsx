@@ -25,10 +25,10 @@ const WishListProducts = ({ data }) => {
     <>
       <div
         onClick={() => handleWishListDetails(data)}
-        className="flex flex-col xs:flex-row sm:flex-col  bg-white/[0.5] rounded-lg shadow-md border-2 border-black/[0.05] overflow-hidden
+        className=" flex flex-col xs:flex-row sm:flex-col  bg-white/[0.5] rounded-lg shadow-md border-2 border-black/[0.05] overflow-hidden
       cursor-pointer
       transition-transform
-      hover:scale-[1.02] hover:shadow-lg"
+      hover:scale-[1.02] hover:shadow-lg w-[400px]"
       >
         <div className="flex items-center justify-center p-10 xs:p-5 sm:p-10 bg-black/[0.075]  xs:w-1/2 w-full sm:w-full">
           <Link to="/product-details">
@@ -56,7 +56,7 @@ const WishListProducts = ({ data }) => {
             </small>
           </div>
         </div>
-        <div className="w-full border-t flex justify-between items-center py-5 pt-6 px-4">
+        <div className="w-full border-t flex justify-between items-center py-5 pt-6 px-4 xs:flex-col lg:flex-row">
           <button className="border border-[--primary-text-color]  py-1.5 text-sm  rounded-full px-6 hover:bg-[--primary-text-color] hover:text-white transition hover:shadow-md">
             Add To Bag
           </button>

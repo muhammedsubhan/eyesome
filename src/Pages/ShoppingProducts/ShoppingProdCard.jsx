@@ -27,11 +27,11 @@ const ShoppingProdCard = ({ data }) => {
       <div
         onClick={() => handleProductDetails(data)}
         className="flex items-center justify-center flex-col xs:flex-row sm:flex-col  bg-white/[0.5] rounded-lg shadow-md border-2 border-black/[0.05] overflow-hidden
-      cursor-pointer
-      transition-transform
-      hover:scale-[1.02] hover:shadow-lg w-[300px]"
+        cursor-pointer
+        transition-transform
+        hover:scale-[1.02] hover:shadow-lg w-[300px]"
       >
-        <div className="flex items-center justify-center p-10 xs:p-5 sm:p-10 bg-black/[0.075]  xs:w-1/2 w-full sm:w-full">
+        <div className=" flex items-center justify-center p-10 xs:p-5 sm:p-10 bg-black/[0.075]  xs:w-1/2 w-full sm:w-full">
           <Link to="/product-details">
             <img
               src={data.img}
