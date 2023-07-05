@@ -6,6 +6,7 @@ import { BrowserRouter } from "react-router-dom";
 import { UserAuthContextProvider } from "./Pages/UserAuthContext/UserAuthContext";
 import { WishListContextProvider } from "./Pages/WishListContext/WishListContext";
 import { ProductsContextProvider } from "./Pages/ProductsContext/ProductsContext";
+import { FilterContextProvider } from "./Pages/FilterContext/FilterContext";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
@@ -13,7 +14,9 @@ root.render(
       <UserAuthContextProvider>
         <WishListContextProvider>
           <ProductsContextProvider>
-            <App />
+            <FilterContextProvider>
+              <App />
+            </FilterContextProvider>
           </ProductsContextProvider>
         </WishListContextProvider>
       </UserAuthContextProvider>

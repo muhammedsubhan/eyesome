@@ -1,12 +1,33 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import bannerHero from "../../assets/bannerHero.jpg";
 import ShoppingProducts from "../ShoppingProducts/ShoppingProducts";
 import { BiFilter } from "react-icons/bi";
 import Filters from "../../Components/Filters/Filters";
 import Navbar from "../../Components/navbar/Navbar";
+import { Glasses } from "../ShoppingProducts/products";
+import { useFilters } from "../FilterContext/FilterContext";
 
 const StartShopping = () => {
   const [filterToggle, setFilterToggle] = useState(false);
+  const [selectValue, setSelectValue] = useState("");
+
+  const { setSortByPrice } = useFilters();
+
+  const sortProductsByPrice = () => {
+    let sortedProducts = [...Glasses];
+
+    if (selectValue === "low_to_high") {
+      sortedProducts.sort((a, b) => a.newPrice - b.newPrice);
+    } else if (selectValue === "high_to_low") {
+      sortedProducts.sort((a, b) => b.newPrice - a.newPrice);
+    }
+
+    setSortByPrice(sortedProducts);
+  };
+
+  useEffect(() => {
+    sortProductsByPrice();
+  }, []); 
 
   return (
     <>
@@ -29,11 +50,11 @@ const StartShopping = () => {
             <label>
               <select
                 name="sortBy"
-                className="w-max py-1 px-2 rounded-md cursor-pointer shadow-md   hover:shadow-lg "
+                className="w-max py-1 px-2 rounded-md cursor-pointer shadow-md hover:shadow-lg"
+                onChange={(e) => setSelectValue(e.target.value)}
+                onClick={sortProductsByPrice}
               >
-                <option value="" defaultValue="" disabled>
-                  Sort By Price
-                </option>
+                <option value="" disabled>Sort By Price</option>
                 <option value="low_to_high">Low to High</option>
                 <option value="high_to_low">High to Low</option>
               </select>
