@@ -25,12 +25,12 @@ const StartShopping = () => {
     setSortByPrice(sortedProducts);
   };
 
-  useEffect(sortProductsByPrice, [sortProductsByPrice]);
+  useEffect(sortProductsByPrice, [selectValue, setSortByPrice]);
 
   return (
     <>
       <Navbar />
-      <div className="mt-6 mb-4 px-32 min-h-screen">
+      <div className="pt-20 mb-4 px-32 min-h-screen ">
         <div>
           <img
             src={bannerHero}

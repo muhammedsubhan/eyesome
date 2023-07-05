@@ -12,7 +12,7 @@ const Header = () => {
   return (
     <>
       <Navbar />
-      <div className="flex justify-between items-center py-3 mb-5 px-32 ">
+      <div className="flex justify-between items-center pt-20 mb-5 px-32 relative ">
         <div className="max-w-xl mx-auto sm:mx-0  py-2  lg:w-1/3 ">
           <h1 className="text-6xl  sm:text-7xl lg:text-8xl font-semibold  py-3 w-full">
             Glasses & Lens

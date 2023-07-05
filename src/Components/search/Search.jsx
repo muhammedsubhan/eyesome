@@ -17,7 +17,6 @@ const Search = () => {
       );
       setFilteredData(filteredGlasses);
       setSearching(false);
-
     }, 2000);
   }, [search]);
 
@@ -30,7 +29,7 @@ const Search = () => {
     <>
       <div className="relative">
         <form
-          className={`flex items-center bg-black/[0.075] px-3  ${
+          className={`flex items-center bg-black/[0.075] px-3 ${
             search && showList ? "rounded-t-md" : "rounded-full"
           } text-sm transition`}
         >

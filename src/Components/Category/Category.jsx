@@ -11,7 +11,7 @@ const Category = ({ catRef }) => {
 
         <div
           ref={catRef}
-          className="flex justify-evenly flex-row items-center py-4 mt-8 gap-5 px-10"
+          className="flex justify-evenly xs:flex-col lg:flex-row flex-row items-center py-4 mt-8 gap-5 px-10"
         >
           {categoryList.map((category, index) => {
             return <CategoryCard key={index} data={category} />;

@@ -34,7 +34,7 @@ const Profile = () => {
   return (
     <>
       <Navbar />
-      <div className="min-h-[80vh] min-w-md max-w-lg m-auto mt-10">
+      <div className="min-h-[80vh] min-w-md max-w-lg m-auto pt-20">
         <div className="h-full p-7 rounded-md shadow-sm bg-white/[0.7] flex flex-col gap-6 w-full">
           <h1 className="bg-[--primary-text-color] text-white  p-3 shadow-sm transition-colors text-center">
             Profile

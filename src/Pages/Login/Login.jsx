@@ -10,7 +10,7 @@ const Login = () => {
   });
 
   const [error, setError] = useState("");
-  const { logIn, user } = useUserAuth();
+  const { logIn } = useUserAuth();
 
   const navigate = useNavigate();
 
@@ -27,8 +27,8 @@ const Login = () => {
     setError(" ");
 
     try {
-      await logIn(data.email, data.password);
-      localStorage.setItem("auth", JSON.stringify(user));
+      const loggedInUser = await logIn(data.email, data.password);
+      localStorage.setItem("auth", JSON.stringify(loggedInUser));
       navigate("/profile");
     } catch (error) {
       setError(error.message);

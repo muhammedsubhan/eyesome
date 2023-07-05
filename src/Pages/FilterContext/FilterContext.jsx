@@ -1,13 +1,9 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useState } from "react";
 
 const FilterContext = createContext();
 
 export function FilterContextProvider({ children }) {
   const [sortByPrice, setSortByPrice] = useState([]);
-
-  useEffect(() => {
-    console.log(sortByPrice);
-  }, [sortByPrice]);
 
   return (
     <FilterContext.Provider

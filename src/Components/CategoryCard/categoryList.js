@@ -5,17 +5,17 @@ import visionmod1 from "../../assets/categories/visionmod1.jpg";
 export const categoryList = [
   {
     id: "1",
-    categoryName: "Vision",
+    category: "vision",
     img: visionmod1,
   },
   {
     id: "2",
-    categoryName: "Sports",
+    category: "sports",
     img: sportsmod1,
   },
   {
     id: "3",
-    categoryName: "Sunglasses",
+    category: "sunglasses",
     img: sunmod1,
   },
 ];
