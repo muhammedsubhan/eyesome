@@ -9,11 +9,16 @@ import "react-toastify/dist/ReactToastify.css";
 
 const ProductDetails = () => {
   const { ProductById } = useProductById();
-  const { addWishList, addToWishList } = useAddToWishList();
+  const { addWishList, addToWishList, removeWishList } = useAddToWishList();
 
   const handleWishList = () => {
     addWishList(ProductById);
     toast.success("Product Added to WishList");
+  };
+
+  const handleRemoveFromWishList = (id) => {
+    removeWishList(id, addToWishList);
+    toast.error("Removed From WishList");
   };
 
   const isInWishList = addToWishList.some((item) => item.id === ProductById.id);
@@ -89,14 +94,23 @@ const ProductDetails = () => {
               <button className="border border-[--primary-text-color]  py-1.5 text-sm  rounded-full px-6 hover:bg-[--primary-text-color] hover:text-white transition hover:shadow-md">
                 Add To Bag
               </button>
-              <button
-                onClick={() => handleWishList(ProductById.id)}
-                className="btn-rounded-primary rounded-full flex items-center gap-2 text-sm "
-              >
+              <button className="border  bg-[--primary-text-color] text-white py-1.5    px-6  transition hover:bg-gray-800 rounded-full flex items-center gap-2 text-sm ">
                 {isInWishList ? (
-                  <BsFillBookmarkHeartFill className="text-xl text-rose-600 hover:shadow-md transition" />
+                  <>
+                    <BsFillBookmarkHeartFill />
+                    <span
+                      onClick={() => handleRemoveFromWishList(ProductById.id)}
+                    >
+                      Remove from Wishlist
+                    </span>
+                  </>
                 ) : (
-                  <BsBookmarkHeart className="text-xl hover:text-rose-600 hover:shadow-md transition" />
+                  <>
+                    <BsBookmarkHeart />
+                    <span onClick={() => handleWishList(ProductById.id)}>
+                      Wishlist Item
+                    </span>
+                  </>
                 )}
               </button>
             </div>

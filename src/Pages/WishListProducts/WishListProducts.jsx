@@ -60,9 +60,12 @@ const WishListProducts = ({ data }) => {
           <button className="border border-[--primary-text-color]  py-1.5 text-sm  rounded-full px-6 hover:bg-[--primary-text-color] hover:text-white transition hover:shadow-md">
             Add To Bag
           </button>
-          <button onClick={() => handleRemoveFromWishList(data.id)}>
+          <button>
             {isInWishList ? (
-              <BsFillBookmarkHeartFill className="text-xl text-rose-600 hover:shadow-md transition" />
+              <BsFillBookmarkHeartFill
+                className="text-xl text-rose-600 hover:shadow-md transition"
+                onClick={() => handleRemoveFromWishList(data.id)}
+              />
             ) : (
               <BsBookmarkHeart className="text-xl hover:text-rose-600 hover:shadow-md transition" />
             )}
