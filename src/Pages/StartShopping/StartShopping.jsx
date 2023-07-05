@@ -25,9 +25,7 @@ const StartShopping = () => {
     setSortByPrice(sortedProducts);
   };
 
-  useEffect(() => {
-    sortProductsByPrice();
-  }, []); 
+  useEffect(sortProductsByPrice, [sortProductsByPrice]);
 
   return (
     <>
@@ -54,7 +52,9 @@ const StartShopping = () => {
                 onChange={(e) => setSelectValue(e.target.value)}
                 onClick={sortProductsByPrice}
               >
-                <option value="" disabled>Sort By Price</option>
+                <option value="" disabled>
+                  Sort By Price
+                </option>
                 <option value="low_to_high">Low to High</option>
                 <option value="high_to_low">High to Low</option>
               </select>
