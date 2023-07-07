@@ -18,17 +18,16 @@ const CartItem = ({ product }) => {
   // );
 
   // console.log(isProductInCart);
-
   const handleIncrement = () => {
-    setQuantity(quantity + 1);
+    setQuantity((prevQuantity) => prevQuantity + 1);
   };
 
   const handleDecrement = () => {
     if (quantity > 1) {
-      setQuantity(quantity - 1);
+      setQuantity((prevQuantity) => prevQuantity - 1);
     }
   };
-
+  
   return (
     <>
       <div className="m-auto flex flex-col gap-2  p-4 rounded-sm shadow-sm bg-white/[0.6] mb-2 max-w-xl">

@@ -1,7 +1,12 @@
 import React from "react";
+import OrderSummary from "../OrdersSummary/OrderSummary";
 
-const SummaryCard = () => {
-  return <div>SummaryCard</div>;
+const SummaryCard = ({ setShowModal }) => {
+  return (
+    <>
+      <OrderSummary setShowModal={setShowModal} />
+    </>
+  );
 };
 
 export default SummaryCard;

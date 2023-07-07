@@ -68,6 +68,10 @@ const Address = () => {
     }
   }, []);
 
+  const onCancelHandle = () => {
+    setAddressToggle(false);
+  };
+
   return (
     <>
       <div>
@@ -149,16 +153,17 @@ const Address = () => {
                 </label>
               </div>
 
-              <div className="flex gap-3 mt-3 flex-wrap">
+              <div className=" flex gap-3 mt-3 flex-wrap">
                 <button
+                  onClick={onCancelHandle}
                   type="button"
-                  className="btn-rounded-secondary rounded-full flex items-center gap-2 text-sm"
+                  className="border border-[--primary-text-color]  py-1.5   px-6 hover:bg-[--primary-text-color] hover:text-white transition rounded-full flex items-center gap-2 text-sm"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
-                  className="btn-rounded-primary rounded-full flex items-center gap-2 text-sm"
+                  className="border border-[--primary-text-color]  py-1.5   px-6 hover:bg-[--primary-text-color] hover:text-white transition rounded-full flex items-center gap-2 text-sm"
                 >
                   Save
                 </button>
