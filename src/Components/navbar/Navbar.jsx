@@ -7,6 +7,7 @@ import { Link, useNavigate } from "react-router-dom";
 import Search from "../search/Search";
 import { useAddToWishList } from "../../Pages/WishListContext/WishListContext";
 import MenuDrop from "../MenuDrop/MenuDrop";
+import { useCartList } from "../../Pages/CartContext/CartContext";
 const Navbar = () => {
   const [colorChange, setColorChange] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -31,6 +32,8 @@ const Navbar = () => {
   const auth = JSON.parse(localStorage.getItem("auth"));
 
   const { addToWishList } = useAddToWishList();
+
+  const { addToCartInList } = useCartList();
 
   return (
     <>
@@ -76,9 +79,14 @@ const Navbar = () => {
                   )}
                 </li>
               </Link>
-              <Link to="/login">
-                <li className="bg-yellow-500 text-white p-2 rounded-full hover:bg-yellow-800 cursor-pointer mx-2 transition shadow-sm">
+              <Link to={auth ? "/cart" : "/login"}>
+                <li className="relative bg-yellow-500 text-white p-2 rounded-full hover:bg-yellow-800 cursor-pointer mx-2 transition shadow-sm">
                   <HiOutlineShoppingBag />
+                  {auth && addToCartInList.length > 0 && (
+                    <div className="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-rose-600 border-2 border-[--theme-color] rounded-full -top-2 -right-2 ">
+                      {addToCartInList.length}
+                    </div>
+                  )}
                 </li>
               </Link>
             </ul>

@@ -6,10 +6,16 @@ import { GiRoundStar } from "react-icons/gi";
 import { useAddToWishList } from "../WishListContext/WishListContext";
 import { Link } from "react-router-dom";
 import { useProductById } from "../ProductsContext/ProductsContext";
+import { useCartList } from "../CartContext/CartContext";
 
 const ShoppingProdCard = ({ data }) => {
   const { addWishList, addToWishList } = useAddToWishList();
   const { setProductById } = useProductById();
+  const { AddProductToCart } = useCartList();
+
+  const { addToCartInList, removeFromCart } = useCartList();
+
+  const isProductInCart = addToCartInList.some((item) => item.id === data.id);
 
   const handleWishList = () => {
     addWishList(data);
@@ -67,7 +73,13 @@ const ShoppingProdCard = ({ data }) => {
             <button
               className={`border border-[--primary-text-color]  py-1.5 text-sm  rounded-full px-6 hover:bg-[--primary-text-color] hover:text-white transition hover:shadow-md disabled:cursor-not-allowed`}
             >
-              Add to Bag
+              {isProductInCart ? (
+                <span onClick={() => removeFromCart(data.id, addToCartInList)}>
+                  Remove from Bag
+                </span>
+              ) : (
+                <span onClick={() => AddProductToCart(data)}>Add to Bag</span>
+              )}
             </button>
             <button onClick={() => handleWishList(data.id)}>
               {isInWishList ? (

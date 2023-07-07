@@ -29,6 +29,7 @@ export const Glasses = [
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
     gender: "Men",
     weight: "200g",
+    qty: "1",
   },
   {
     id: "2",

@@ -8,6 +8,8 @@ import Profile from "./Pages/Profile/Profile";
 import ProtectedRoutes from "./Pages/ProtectedRoutes/ProtectedRoutes";
 import WishList from "./Pages/WishList/WishList";
 import ProductDetails from "./Pages/ProductDetails/ProductDetails";
+import Cart from "./Pages/Cart/Cart";
+import CheckOut from "./Pages/CheckOut/CheckOut";
 const App = () => {
   return (
     <>
@@ -27,6 +29,8 @@ const App = () => {
           />
           <Route path="/wishlist" element={<WishList />} />
           <Route path="/product-details" element={<ProductDetails />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/checkout" element={<CheckOut />} />
         </Routes>
       </div>
     </>
