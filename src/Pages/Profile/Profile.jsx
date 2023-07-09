@@ -8,6 +8,10 @@ const Profile = () => {
   const { logOut, user } = useUserAuth();
   const [userName, setUserName] = useState("");
   const [email, setEmail] = useState("");
+  const [guestEmail, setGuestEmail] = useState("");
+  const [guestUsername, setGuestUsername] = useState("");
+  const [OGEmail, setOGEmail] = useState("");
+  const [OGUsername, setOGUsername] = useState("");
 
   const navigate = useNavigate();
 
@@ -25,12 +29,39 @@ const Profile = () => {
   useEffect(() => {
     const localUserName = JSON.parse(localStorage.getItem("username"));
     const localEmail = JSON.parse(localStorage.getItem("email"));
+    const guestAuth = JSON.parse(localStorage.getItem("GuestAuth"));
+
+    const GuestEmail = JSON.parse(localStorage.getItem("guestEmail"));
+    const GuestUsername = JSON.parse(localStorage.getItem("guestUsername"));
+
     if (user && localUserName && localEmail) {
       setUserName(localUserName);
       setEmail(localEmail);
     }
-  }, [user]);
 
+    if (guestAuth) {
+      setGuestEmail(GuestEmail);
+      setGuestUsername(GuestUsername);
+    }
+
+    const Email = guestAuth ? guestEmail : email;
+    const UserName = guestAuth ? guestUsername : userName;
+
+    setOGEmail(Email);
+
+    setOGUsername(UserName);
+
+    // console.log(guestEmail, guestUsername);
+  }, [
+    user,
+    setUserName,
+    setEmail,
+    setGuestEmail,
+    email,
+    guestEmail,
+    guestUsername,
+    userName,
+  ]);
   return (
     <>
       <Navbar />
@@ -42,11 +73,11 @@ const Profile = () => {
           <div className="flex flex-col gap-4 w-full p-5">
             <p>
               <span className="text-gray-600 me-1">Username:</span>
-              <span className="break-all">{userName}</span>
+              <span className="break-all">{OGUsername}</span>
             </p>
             <p>
               <span className="text-gray-600 me-1">Email:</span>
-              <span className="break-all">{email}</span>
+              <span className="break-all">{OGEmail}</span>
             </p>
             <hr />
             <button

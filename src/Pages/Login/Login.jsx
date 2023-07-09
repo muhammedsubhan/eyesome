@@ -39,6 +39,32 @@ const Login = () => {
       password: "",
     });
   };
+
+  const handleGuest = async (e) => {
+    e.preventDefault();
+
+    setError(" ");
+
+    const guestEmail = "guestuser123@gmail.com";
+    const guestPassword = "123456789";
+    const guestUsername = "GuestAccount";
+
+    try {
+      // Authenticate with Firebase using the guest email and password
+      const loggedInUser = await logIn(guestEmail, guestPassword);
+
+      // Save the user data in local storage
+      localStorage.setItem("auth", JSON.stringify(loggedInUser));
+      localStorage.setItem("guestEmail", JSON.stringify(guestEmail));
+      localStorage.setItem("guestUsername", JSON.stringify(guestUsername));
+
+      // Redirect to the profile page
+      navigate("/profile");
+    } catch (error) {
+      setError(error.message);
+    }
+  };
+
   return (
     <>
       <div className="grid  grid-rows-1 lg:grid-cols-2 w-full  h-screen m-auto">
@@ -60,7 +86,7 @@ const Login = () => {
               <h1 className="text-3xl font-bold mb-3 ">
                 Login To Your Account
               </h1>
-              <form className="flex flex-col gap-3" onSubmit={handleSubmit}>
+              <form className="flex flex-col gap-3">
                 <label className="flex flex-col">
                   Email
                   <input
@@ -84,10 +110,16 @@ const Login = () => {
                 {error && <p className="text-center text-red-800">{error}</p>}
                 <div className="w-full py-2 flex flex-col gap-4 items-center">
                   <button
-                    type="submit"
+                    onClick={handleSubmit}
                     className=" w-2/3 text-lg text-center py-2 px-4 border border-[--primary-text-color] rounded-lg hover:bg-[--primary-text-color] hover:text-white transition"
                   >
                     Login
+                  </button>
+                  <button
+                    onClick={handleGuest}
+                    className=" w-2/3 text-lg text-center py-2 px-4 border border-[--primary-text-color] rounded-lg hover:bg-[--primary-text-color] hover:text-white transition"
+                  >
+                    Login as Guest
                   </button>
 
                   <Link to="/signup" className="underline text-gray-600">
