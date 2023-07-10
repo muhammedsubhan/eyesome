@@ -2,6 +2,8 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+LIVE APP LINK: https://timely-sunflower-dd630e.netlify.app/
+
 ## Available Scripts
 
 In the project directory, you can run:
